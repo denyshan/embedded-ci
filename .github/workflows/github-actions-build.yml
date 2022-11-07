@@ -12,7 +12,9 @@ jobs:
         uses: carlosperate/arm-none-eabi-gcc-action@v1
         with:
           release: ${{ matrix.gcc }}
-      - run: arm-none-eabi-gcc --version
+      - run: |
+          arm-none-eabi-gcc --version
+          make clean
 # jobs:
 #   Explore-GitHub-Actions:
 #     runs-on: ubuntu-latest
