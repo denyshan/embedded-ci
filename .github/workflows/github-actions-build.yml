@@ -14,6 +14,7 @@ jobs:
           release: ${{ matrix.gcc }}
       - run: |
           arm-none-eabi-gcc --version
+          ls
           make clean
 # jobs:
 #   Explore-GitHub-Actions:
