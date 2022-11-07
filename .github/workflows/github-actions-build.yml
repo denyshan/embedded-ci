@@ -13,10 +13,9 @@ jobs:
         with:
           release: ${{ matrix.gcc }}
       - run: |
+          ls ${{ github.workspace }}
           cd ${{ github.workspace }}
           pwd
-          ls
-          arm-none-eabi-gcc --version
 # jobs:
 #   Explore-GitHub-Actions:
 #     runs-on: ubuntu-latest
