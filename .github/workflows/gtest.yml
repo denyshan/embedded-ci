@@ -1,0 +1,25 @@
+name: Google Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtest-dev
+    - name: Build Google Test
+      run: |
+        cd /usr/src/gtest
+        cmake CMakeLists.txt
+        make
+        cp *.a /usr/lib
+    - name: Build and run tests
+      run: |
+        cd $GITHUB_WORKSPACE
+        cmake .
+        make
+        ctest
